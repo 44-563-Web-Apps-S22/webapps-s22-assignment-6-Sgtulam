@@ -8,12 +8,12 @@
 
 
 
-<form style="border: 2px solid black ; width: 500px; padding: 10px 10px 10px; border-radius: 25px;" >
+<form style="background-color: beige; border: 2px solid black ; width: 500px; padding: 10px 10px 10px; border-radius: 25px;" >
     <label for="form1_age">Enter the secret president name</label>
     <input type ="password" id="secrete" name="form1_age" min=10 max=50 step=2 value="George Washington"> <br>
   <br>
     <label for="form1_nick">Guess the president</label>
-    <input type ="text" placeholder="Enter your guess here.." id="guess" name="form1_nick" autofocus> <br><br>
+    <input type ="text" placeholder="Enter your guess here.." id="guess" name="form1_nick" autofocus required> <br><br>
 
     <input type="button"  onclick="checkGuess()" value="Check the Guess">
 
@@ -31,14 +31,14 @@ let correct=0,wrong=0;
 function checkGuess(){
    
     if(document.getElementById("secrete").value==document.getElementById("guess").value){
-        correct=correct+1;
+        correct++;
         alert('You got it right!!')
         document.getElementById('result').innerHTML="Correct Guess:"+correct+"\nWrong Guess:"+wrong
         
     }
     else{
-        wrong=wrong+1;
-        alert('Wrong President')
+        wrong++;
+        alert('Oppssss!!! Wrong President. Try Again!')
         document.getElementById('result').innerHTML="Correct Guess:"+correct+"\nWrong Guess:"+wrong
     }
 
