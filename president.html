@@ -26,8 +26,15 @@
 
 <input type="button" onclick="playagain()" value="Start Game Again!">
 
+<hr>
+
+<div>
+    click on image <br>
+    <img id="image" onclick="swapImage()" src="images/albatross.jpg" alt="albatross" width="200"; height="200">
+</div>
+<hr>
 <script> 
-let correct=0,wrong=0;
+let correct=0,wrong=0,useImage=1;
 function checkGuess(){
    
     if(document.getElementById("secrete").value==document.getElementById("guess").value){
@@ -45,6 +52,16 @@ function checkGuess(){
 }
 function playagain(){
     location.reload()
+}
+
+function swapImage(){
+    switch (useImage){
+        case 1: document.getElementById('image').src="images/magpie.jpg";useImage++;break;
+        case 2: document.getElementById('image').src="images/troupial.jpg";useImage++;break;
+        case 3: document.getElementById('image').src="images/albatross.jpg";useImage=1;break;
+
+
+    }
 }
 
 function resolveForm (){
