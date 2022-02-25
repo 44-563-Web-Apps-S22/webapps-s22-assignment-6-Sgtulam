@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+ <head>
+     <title>President</title>
+ </head>
+<body style="background-color: aquamarine;">
+<h1>President guess by Suresh Tulam</h1>
+
+
+
+<form style="border: 2px solid black ; width: 500px; padding: 10px 10px 10px; border-radius: 25px;" >
+    <label for="form1_age">Enter the secret president name</label>
+    <input type ="password" id="secrete" name="form1_age" min=10 max=50 step=2 value="George Washington"> <br>
+  <br>
+    <label for="form1_nick">Guess the president</label>
+    <input type ="text" placeholder="Enter your guess here.." id="guess" name="form1_nick" autofocus> <br><br>
+
+    <input type="button"  onclick="checkGuess()" value="Check the Guess">
+
+</form>
+
+
+
+
+<p id="result"> </p><br><br>
+
+<input type="button" onclick="playagain()" value="Start Game Again!">
+
+<script> 
+let correct=0,wrong=0;
+function checkGuess(){
+   
+    if(document.getElementById("secrete").value==document.getElementById("guess").value){
+        correct=correct+1;
+        alert('You got it right!!')
+        document.getElementById('result').innerHTML="Correct Guess:"+correct+"\nWrong Guess:"+wrong
+        
+    }
+    else{
+        wrong=wrong+1;
+        alert('Wrong President')
+        document.getElementById('result').innerHTML="Correct Guess:"+correct+"\nWrong Guess:"+wrong
+    }
+
+   
+}
+function playagain(){
+    location.reload()
+}
+
+function resolveForm (){
+    console.log("Getting form values")
+    age = document.getElementById("form1_age").value
+    nick = document.getElementById("form1_nick").value
+    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    
+    out = document.getElementById("result")
+    if(confirmed){
+        out.innerHTML = "Values were confirmed"
+    } else {
+        out.innerHTML = "Values were not confirmed"
+    }
+}
+</script>
+
+</body>
+</html> 
