@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+ <head><title>Computer</title></head>
+<body>
+
+<h2>Suresh Tula Orders a Computer</h2>
+<form>
+    <input type="checkbox" id="extraMoney" name="topping1"   
+      value="extra" checked>
+    <label for="extraMoney">Extra memory</label></br>
+  
+    <input type="checkbox" id="Mouse" name="topping2" 
+       value="mouse" checked>
+    <label for="Mouse">Mouse</label></br>
+  
+    <input type="checkbox" id="cellService" name="topping3"   
+       value="cell" checked>
+    <label for="cellService">Cell service</label></br>
+
+    <input type="button" onclick="orderComputer()" value="Order a Computer">
+  </form>
+
+
+
+
+<p id="results" style="background-color: rgb(106, 224, 224); width: fit-content;"></p>
+<hr>
+<form>
+    <label for="form1_age">What is your age </label>
+    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
+
+    <label for="form1_nick">What is your nickname </label>
+    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
+
+    <input type="button" onclick="resolveForm()" value="Get values from form">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+var my_computer={}
+
+
+function orderComputer(){
+
+    extra = document.getElementById("extraMoney").checked
+    mouse = document.getElementById("Mouse").checked
+    cell = document.getElementById("cellService").checked
+
+
+    my_computer={}
+
+    if(extra){
+        my_computer["extra"]=true
+    }else{
+        my_computer["extra"]=false
+    }
+
+    if(mouse){
+        my_computer["Mouse"]=true
+    }else{
+        my_computer["Mouse"]=false
+    }
+
+    if(cell){
+        my_computer["cell"]=true
+    }else{
+        my_computer["cell"]=false
+    }
+
+    document.getElementById("results").innerHTML="<b>Extra Money:</b>"+my_computer.extra+", <b>Mouse:</b>"+my_computer.Mouse+", <b>Cell Service:</b>"+my_computer.cell
+}
+
+
+
+
+
+
+function resolveForm (){
+    console.log("Getting form values")
+    age = document.getElementById("form1_age").value
+    nick = document.getElementById("form1_nick").value
+    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    
+    out = document.getElementById("result")
+    if(confirmed){
+        out.innerHTML = "Values were confirmed"
+    } else {
+        out.innerHTML = "Values were not confirmed"
+    }
+}
+</script>
+
+</body>
+</html> 
