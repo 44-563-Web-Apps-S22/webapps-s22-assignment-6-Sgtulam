@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
  <head><title>Tips</title></head>
-<body>
+<body style="background-color: beige;">
 
-<h2>Suresh Tulam's computes tips</h2>
+<h2>Suresh Tulam computes tips</h2>
 
 <label for="amount">Enter a check amount</label>
-<input type="number" id="amount" name="amount" value=15><br>
+<input type="number" id="amount" name="amount" value=15><br><br>
 <label for="tipIncrease">Enter tip increase</label>
 <input type="number" id="tipIncrease" name="tipIncrease" value=0.02>
 <br>
@@ -15,13 +15,58 @@
 <br>
 <p id="results"></p>
 
-<script> 
-let result=""
+<hr>
 
-function tips(){
-    result="Tip amounts by increase of value are:"
+<form>
+    <input type="radio" id="times" name="operation" value="times" onclick="chooseOp()"   
+      checked >
+    <label for="times">*</label></br>
+  
+    <input type="radio" id="divide" name="operation"  onclick="chooseOp()" 
+       value="divide">
+    <label for="divide">/</label></br>
+  
+    <input type="radio" id="exponent" name="operation"  onclick="chooseOp()"   
+       value="exponent">
+    <label for="exponent">**</label></br>
+  </form>
+
+  <p id="results2"></p>
+  
+  
+
+
+
+
+
+<script> 
+
+function chooseOp(){
     var amount=(Number)(document.getElementById("amount").value)
     var tipIncrease=(Number)(document.getElementById("tipIncrease").value)
+     exponent=document.getElementById("exponent").checked
+ 
+     times=document.getElementById("times").checked
+   
+     divide=document.getElementById("divide").checked
+     
+  if(exponent)
+    document.getElementById('results2').innerHTML="[amount ** tipIncrease] Value is:"+amount**tipIncrease
+    else if(times)
+    document.getElementById('results2').innerHTML="[amount * tipIncrease] Value is:"+amount*tipIncrease
+    else if(divide)
+    document.getElementById('results2').innerHTML="[amount / tipIncrease] value is:"+amount/tipIncrease
+
+}
+
+
+let result=""
+
+function tips(){  
+     var amount=(Number)(document.getElementById("amount").value)
+    var tipIncrease=(Number)(document.getElementById("tipIncrease").value)
+    result="Tip amounts by increase of "+tipIncrease+" are:"
+ 
     var sum=amount*0.1
     result+=sum+0.0
  
