@@ -3,7 +3,7 @@
  <head><title>Computer</title></head>
 <body>
 
-<h2>Suresh Tula Orders a Computer</h2>
+<h2>Suresh Tulam Orders a Computer</h2>
 <form>
     <input type="checkbox" id="extraMoney" name="topping1"   
       value="extra" checked>
@@ -26,13 +26,13 @@
 <p id="results" style="background-color: rgb(106, 224, 224); width: fit-content;"></p>
 <hr>
 <form>
-    <label for="form1_age">What is your age </label>
-    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
+    <label for="pname">Enter a property name </label>
+    <input type ="text" id="pname" name="pname" min=10 max=50 step=2 value="engraved"> <br>
 
-    <label for="form1_nick">What is your nickname </label>
-    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
+    <label for="pvalue">Enter a value</label>
+    <input type ="text" id="pvalue" name="pvalue" autofocus> <br>
 
-    <input type="button" onclick="resolveForm()" value="Get values from form">
+    <input type="button" onclick="updateComputer()" value="Update the computer">
 </form>
 
 
@@ -40,6 +40,14 @@
 
 <script> 
 var my_computer={}
+
+function updateComputer(){
+   var a=document.getElementById("pname").value
+   var b=document.getElementById("pvalue").value
+    my_computer[a]=b
+    document.getElementById("result").innerHTML=a+":"+b+" <b>added successfully</b>"
+    console.log(my_computer)
+}
 
 
 function orderComputer(){
@@ -49,7 +57,7 @@ function orderComputer(){
     cell = document.getElementById("cellService").checked
 
 
-    my_computer={}
+   
 
     if(extra){
         my_computer["extra"]=true
